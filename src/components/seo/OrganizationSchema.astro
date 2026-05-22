@@ -1,0 +1,14 @@
+---
+import JsonLd from './JsonLd.astro';
+import {
+  buildOrganizationSchema,
+  type OrganizationSchemaInput,
+} from '../../lib/schema/organization';
+
+type Props = Partial<OrganizationSchemaInput> &
+  Pick<OrganizationSchemaInput, 'description'>;
+
+const schema = buildOrganizationSchema(Astro.props);
+---
+
+<JsonLd schema={schema} />

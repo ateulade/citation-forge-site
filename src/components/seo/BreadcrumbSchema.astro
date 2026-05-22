@@ -1,0 +1,13 @@
+---
+import JsonLd from './JsonLd.astro';
+import {
+  buildBreadcrumbSchema,
+  type BreadcrumbSchemaInput,
+} from '../../lib/schema/breadcrumb';
+
+type Props = BreadcrumbSchemaInput;
+
+const schema = buildBreadcrumbSchema(Astro.props);
+---
+
+<JsonLd schema={schema} />

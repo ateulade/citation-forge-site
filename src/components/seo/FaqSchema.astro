@@ -1,0 +1,10 @@
+---
+import JsonLd from './JsonLd.astro';
+import { buildFaqSchema, type FaqSchemaInput } from '../../lib/schema/faq';
+
+type Props = FaqSchemaInput;
+
+const schema = buildFaqSchema(Astro.props);
+---
+
+<JsonLd schema={schema} />

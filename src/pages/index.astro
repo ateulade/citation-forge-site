@@ -1,17 +1,61 @@
 ---
+import type { WithContext, Organization, WebSite } from 'schema-dts';
+import Layout from '../components/layout/Layout.astro';
 
+const SITE_URL = 'https://citationforge.com';
+
+const organization: WithContext<Organization> = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Citation Forge',
+  url: SITE_URL,
+  logo: `${SITE_URL}/logo.svg`,
+  description:
+    'Citation Forge transforms existing SEO blog content into AEO-performing content cited by ChatGPT, Perplexity, Claude, and Gemini.',
+};
+
+const website: WithContext<WebSite> = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'Citation Forge',
+  url: SITE_URL,
+  publisher: { '@type': 'Organization', name: 'Citation Forge' },
+};
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout
+  title="Citation Forge — AEO content production for B2B SaaS"
+  description="Transform your existing SEO blog into content cited by ChatGPT, Perplexity, Claude, and Gemini. Free audit + cite-or-refund add-on."
+  schema={[organization, website]}
+>
+  <main class="mx-auto max-w-3xl px-6 py-24 md:py-32">
+    <p class="font-mono text-sm uppercase tracking-widest text-[var(--color-fg-muted)]">
+      Citation Forge
+    </p>
+    <h1 class="mt-6 text-5xl font-semibold leading-tight md:text-6xl">
+      The AEO production engine for B2B SaaS.
+    </h1>
+    <p class="mt-8 max-w-prose text-lg text-[var(--color-fg-muted)]">
+      Coming soon. We turn your existing SEO blog into content cited by ChatGPT,
+      Perplexity, Claude, and Gemini — schema-marked, programmatically scaled,
+      and shipped straight to your repo.
+    </p>
+    <div class="mt-10 flex flex-wrap gap-4">
+      <a
+        href="/tools/free-audit"
+        class="inline-flex items-center rounded-md bg-[var(--color-accent)] px-5 py-3 font-mono text-sm font-medium text-[var(--color-accent-fg)] transition hover:opacity-90"
+      >
+        Get the free audit
+      </a>
+      <a
+        href="/blog"
+        class="inline-flex items-center rounded-md border border-[var(--color-border)] px-5 py-3 font-mono text-sm font-medium text-[var(--color-fg)] transition hover:border-[var(--color-fg-muted)]"
+      >
+        Read the playbook
+      </a>
+    </div>
+    <p class="mt-16 font-mono text-xs uppercase tracking-widest text-[var(--color-fg-subtle)]">
+      v0 · Phase 0 scaffold · {new Date().toISOString().slice(0, 10)}
+    </p>
+  </main>
+</Layout>

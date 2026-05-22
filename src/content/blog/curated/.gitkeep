@@ -1,0 +1,3 @@
+# Human-authored blog posts land in this directory.
+# Each filename should be the URL slug (e.g. `aeo-vs-seo-explained.mdx`).
+# Frontmatter must validate against `src/content.config.ts`.

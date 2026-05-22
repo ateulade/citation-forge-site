@@ -1,0 +1,15 @@
+# Default owner for the whole repo.
+# Replace with your GitHub username or team handle (e.g. @AlexandreTeulade or @citationforge/site-maintainers).
+*                                       @CITATION_FORGE_OWNER
+
+# Human-curated content — only humans on the maintainers team should touch this.
+/src/content/blog/curated/              @CITATION_FORGE_OWNER
+
+# Bot-generated content — only the Citation Forge SaaS bot account should write here.
+# Configure GitHub branch protection so the bot's PRs auto-merge into _generated/
+# but require human review for anything outside it.
+/src/content/blog/_generated/           @CITATION_FORGE_BOT
+
+# Schema definitions are load-bearing. Any change here can break every page.
+/src/content.config.ts                  @CITATION_FORGE_OWNER
+/src/lib/schema/                        @CITATION_FORGE_OWNER

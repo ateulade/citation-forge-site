@@ -1,0 +1,24 @@
+---
+import type { Thing, WithContext } from 'schema-dts';
+import BaseHead from './BaseHead.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  noindex?: boolean;
+  schema?: Thing | WithContext<Thing> | Array<Thing | WithContext<Thing>>;
+}
+
+const props = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead {...props} />
+  </head>
+  <body class="min-h-screen antialiased">
+    <slot />
+  </body>
+</html>

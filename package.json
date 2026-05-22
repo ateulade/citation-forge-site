@@ -2,16 +2,46 @@
   "name": "citation-forge-site",
   "type": "module",
   "version": "0.0.1",
+  "private": true,
+  "packageManager": "pnpm@10.33.4",
   "engines": {
     "node": ">=22.12.0"
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "astro build && pagefind --site dist/client",
     "preview": "astro preview",
-    "astro": "astro"
+    "check": "astro check",
+    "astro": "astro",
+    "generate-types": "wrangler types"
   },
   "dependencies": {
-    "astro": "^6.2.2"
+    "@astrojs/cloudflare": "^13.3.1",
+    "@astrojs/mdx": "^5.0.4",
+    "@astrojs/sitemap": "^3.7.2",
+    "@tailwindcss/vite": "^4.2.4",
+    "astro": "^6.2.2",
+    "resend": "^6.12.3",
+    "schema-dts": "^2.0.0",
+    "tailwindcss": "^4.2.4",
+    "wrangler": "^4.88.0",
+    "zod": "^4.4.3"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "sharp"
+    ]
+  },
+  "overrides": {
+    "vite": "^7"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.9",
+    "@astrojs/rss": "^4.0.18",
+    "@iconify/json": "^2.2.470",
+    "astro-icon": "^1.1.5",
+    "pagefind": "^1.5.2",
+    "typescript": "^6.0.3"
   }
 }

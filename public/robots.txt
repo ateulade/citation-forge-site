@@ -1,0 +1,27 @@
+# Citation Forge — robots policy
+# We explicitly welcome AEO crawlers and the major search engines.
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /_fixtures/
+
+Sitemap: https://citationforge.com/sitemap-index.xml

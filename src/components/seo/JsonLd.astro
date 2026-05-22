@@ -1,0 +1,25 @@
+---
+import type { Thing, WithContext } from 'schema-dts';
+
+interface Props {
+  schema: Thing | WithContext<Thing> | Array<Thing | WithContext<Thing>>;
+}
+
+const { schema } = Astro.props;
+
+const payload = Array.isArray(schema) ? schema : [schema];
+
+const ensureContext = (entry: Thing | WithContext<Thing>) => {
+  if (typeof entry === 'object' && entry !== null && !('@context' in entry)) {
+    return { '@context': 'https://schema.org', ...entry } as WithContext<Thing>;
+  }
+  return entry;
+};
+
+const escapeJson = (raw: string) =>
+  raw.replace(/</g, '\\u003c').replace(/>/g, '\\u003e').replace(/&/g, '\\u0026');
+
+const blocks = payload.map((entry) => escapeJson(JSON.stringify(ensureContext(entry))));
+---
+
+{blocks.map((block) => <script type="application/ld+json" set:html={block} is:inline />)}

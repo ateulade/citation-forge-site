@@ -1,43 +1,35 @@
-# Astro Starter Kit: Minimal
+# Citation Forge — Marketing Site
+
+The marketing site for Citation Forge, an AEO content production engine for B2B SaaS.
+
+> The architectural moat: this site is generated and updated _by Citation Forge itself_ — the SaaS pushes new and transformed pages here via the GitHub API → Cloudflare Pages auto-deploys → IndexNow re-pings the search engines. The marketing site demonstrates the product by being optimized by the product.
+
+## Quick start
 
 ```sh
-npm create astro@latest -- --template minimal
+pnpm install
+pnpm dev          # http://localhost:4321
+pnpm check        # type + content schema validation
+pnpm build        # production build to dist/ (with Pagefind index)
+pnpm preview      # preview the production build
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Requires **Node 22+** and **pnpm 10+** (managed via Corepack).
 
-## 🚀 Project Structure
+## Where to read more
 
-Inside of your Astro project, you'll see the following folders and files:
+- **[CLAUDE.md](./CLAUDE.md)** — stack, repo layout, commands, conventions, the GitHub-as-CMS flywheel.
+- **[content-style-guide.md](./content-style-guide.md)** — voice, structure, frontmatter contract, schema requirements (this is the contract the SaaS follows when writing pages).
+- **[`src/content.config.ts`](./src/content.config.ts)** — the Zod schema for all content. Source of truth.
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+## Status
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+- **Phase 0** — scaffold + toolchain + first deploy ✅
+- **Phase 1** — design system + schema components (next)
+- **Phase 2** — 5 hero pages including free-audit
+- **Phase 3** — blog/glossary/comparison/use-case templates + launch content
+- **Phase 4** — SaaS-side GitHub API integration (programmatic generation flywheel)
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## License
 
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Proprietary — Citation Forge. All rights reserved.

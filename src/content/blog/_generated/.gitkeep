@@ -1,0 +1,4 @@
+# SaaS-generated blog posts land in this directory via the GitHub API (Phase 4).
+# Filename pattern: `auto-{slug}-{shortHash}.mdx`.
+# All entries here MUST set `generated: true` in frontmatter.
+# Humans should not edit files here — see CODEOWNERS.
